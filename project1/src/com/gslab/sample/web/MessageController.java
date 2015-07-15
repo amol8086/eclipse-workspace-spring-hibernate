@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,10 +35,28 @@ public class MessageController {
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public @ResponseBody Message getAllMessages(@PathVariable("id") int id) {
-        Message message = new Message();
-        message.setPreDefinedMessageText("This is get message message text.");
+    public @ResponseBody Message findMessages(@PathVariable("id") int id) {
+        Message message = getMessageService().findMessage(id);
 		return message;
+    }
+    
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public @ResponseBody Message updateMessages(@PathVariable("id") int id, @RequestBody Message message) {
+    	message.setId(id);
+    	Message updatedMessage = getMessageService().updateMessage(message);
+		return updatedMessage;
+    }
+    
+    @RequestMapping(method = RequestMethod.POST)
+    public @ResponseBody Message addMessages(@RequestBody Message message) {
+        Message addedMessage = getMessageService().addNewMessage(message);
+		return addedMessage;
+    }
+    
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public @ResponseBody boolean deleteMessages(@PathVariable("id") int id) {
+        boolean success = getMessageService().deleteMessage(id);
+		return success;
     }
     
 }
