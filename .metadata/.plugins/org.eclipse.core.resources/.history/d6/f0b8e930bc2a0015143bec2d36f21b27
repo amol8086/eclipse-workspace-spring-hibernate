@@ -1,0 +1,42 @@
+package com.gslab.sample.web;
+
+import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
+
+import javax.annotation.Resource;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.gslab.sample.entity.Message;
+import com.gslab.sample.service.HelloWorldService;
+import com.gslab.sample.service.MessageService;
+
+@RestController
+@RequestMapping(value="messages")
+public class MessageController {
+
+    @Resource
+	private MessageService messageService;
+    
+    public MessageService getMessageService() {
+		return messageService;
+	}
+
+	public void setMessageService(MessageService messageService) {
+		this.messageService = messageService;
+	}
+
+	@RequestMapping
+    public List<Message> getAllMessages() {
+    	return getMessageService().getAllMessages();
+    }
+    
+    @RequestMapping("/{id:.+}")
+    public Message getAllMessages(@PathVariable("id") int id) {
+        
+    	return new Message();
+    }
+    
+}

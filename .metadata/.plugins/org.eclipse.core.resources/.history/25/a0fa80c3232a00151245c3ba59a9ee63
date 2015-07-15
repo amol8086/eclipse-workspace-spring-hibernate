@@ -1,0 +1,5 @@
+package com.gslab.sample.service;
+
+public class HelloWorldService {
+
+}
