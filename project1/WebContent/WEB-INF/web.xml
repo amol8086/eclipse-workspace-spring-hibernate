@@ -3,7 +3,16 @@
 	<display-name>project1</display-name>	
 	<display-name>Spring MVC Project</display-name>
 	<description>Spring MVC web application</description>
- 
+
+	<filter>
+		<filter-name>cors</filter-name>
+		<filter-class>com.gslab.sample.filter.CorsFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>cors</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  
 	<!-- For web context -->
 	<servlet>
 		<servlet-name>dispatcher-servlet</servlet-name>

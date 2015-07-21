@@ -5,3 +5,4 @@
 1436935603249	Move 'resources' to 'WebContent'
 1436935841892	Rename resource 'index.jsp'
 1436936759577	Rename local variable 'model'
+1436961401052	Rename method 'findMessages'

@@ -1,2 +1,2 @@
-# Eclipse workspace for a spring-sample
-A project with spring application with sample view and json response
+# Eclipse Workspace Spring Hibernate
+Eclipse workspace for Spring MVC with hibernate to connect to MySql database.

@@ -2,8 +2,6 @@ INDEX VERSION 1.3+C:\Users\gs-1014\Documents\eclipse-workspaces\first\.metadata\
 3540839101.index
 2873748673.index
 3247726220.index
-1068529834.index
-2965174927.index
 2353242296.index
 929035023.index
 3414232725.index
