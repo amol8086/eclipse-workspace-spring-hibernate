@@ -2,11 +2,10 @@ package com.gslab.sample.dac.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gslab.sample.dac.MessageServiceDAC;
@@ -14,7 +13,7 @@ import com.gslab.sample.entity.Message;
 
 @Transactional
 public class MessageServiceDACImpl implements MessageServiceDAC {
-	private static final Logger LOGGER = LoggerFactory.getLogger(MessageServiceDACImpl.class);
+	private static Logger LOGGER = Logger.getLogger(MessageServiceDACImpl.class);
 	
 	private SessionFactory sessionFactory;
 	
@@ -55,6 +54,7 @@ public class MessageServiceDACImpl implements MessageServiceDAC {
 	public Message addMessage(Message newMessage) {
 		Session session = getSessionFactory().getCurrentSession();
 		session.save(newMessage);
+		LOGGER.info("Added message with id: " + newMessage.getId() + " message : " + newMessage);
 		return newMessage;
 	}
 
@@ -62,6 +62,7 @@ public class MessageServiceDACImpl implements MessageServiceDAC {
 	public Message updateMessage(Message message) {
 		Session session = getSessionFactory().getCurrentSession();
 		session.saveOrUpdate(message);
+		LOGGER.info("Updated message with id: " + message.getId() + " message : " + message);
 		return message;
 	}
 
@@ -70,5 +71,6 @@ public class MessageServiceDACImpl implements MessageServiceDAC {
 		Session session = getSessionFactory().getCurrentSession();
 		Message message = (Message) session.get(Message.class, messageId);
 		session.delete(message);
+		LOGGER.info("Deleted message with id: " + message.getId() + " message : " + message);
 	}
 }

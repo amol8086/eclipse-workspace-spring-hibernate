@@ -13,13 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value="welcome")
 public class WelcomeController {
  
-	private final Logger logger = Logger.getLogger(WelcomeController.class);
+	private final Logger LOGGER = Logger.getLogger(WelcomeController.class);
+	
 	private final String VIEW = "hello";
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(Map<String, Object> model) {
  
-		logger.debug("index() is executed!");
+		LOGGER.debug("index() is executed!");
  
 		model.put("title", "Sample Spring Application.");
 		model.put("msg", "This is a sample message shown on a VIEW");
@@ -30,7 +31,7 @@ public class WelcomeController {
 	@RequestMapping(value = "/hello/{name:.+}", method = RequestMethod.GET)
 	public ModelAndView hello(@PathVariable("name") String name) {
  
-		logger.debug("hello() is executed - $name {}" + name);
+		LOGGER.debug("hello() is executed - $name {}" + name);
  
 		ModelAndView modelAndView = new ModelAndView(VIEW);
  

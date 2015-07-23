@@ -13,17 +13,17 @@ public class SpringStandalone {
 	public static void main(String[] args) {
 		// open/read the application context file
 	    applicationContext = new ClassPathXmlApplicationContext("spring-standalone.xml");
-	    Message message = new Message();
+	    /*Message message = new Message();
 	    message.setId(7);
 	    message.setAge(40);
 	    message.setGender("Male");
-	    message.setPreDefinedMessageText("Updating message. discharge him.");
+	    message.setPreDefinedMessageText("Updating message. discharge him.");*/
 	    
 		//fetchAllMessages();
 	    //fetchMessageById(2);
 	    //addNewMessage(message);
 	    //updateMessage(message);
-	    deleteMessage(message);
+	    //deleteMessage(message);
 	    
 	    System.out.println(">>>>>>>>>>>deleted");
 	    

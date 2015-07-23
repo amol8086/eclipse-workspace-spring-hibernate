@@ -12,8 +12,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="messages")
 public class Message implements Serializable{
-	private static final long serialVersionUID = 1L;
-	
+
+	private static final long serialVersionUID = -3336350143239946469L;
+
 	private int id;
 	private String preDefinedMessageText;
 	private String gender;
@@ -55,6 +56,15 @@ public class Message implements Serializable{
 	
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Message [id=" + id + ", preDefinedMessageText=" + preDefinedMessageText + ", gender=" + gender
+				+ ", age=" + age + "]";
 	}
 	
 }

@@ -54,5 +54,18 @@
 	
 	<bean id="messageServiceDACMock" class="com.gslab.sample.dac.impl.MessageServiceDACMock"
 		init-method="init"/>
+ 	
+ 	<bean id="employeeServiceDAC" class="com.gslab.sample.dac.impl.EmployeeServiceDACImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="meetingServiceDAC" class="com.gslab.sample.dac.impl.MeetingServiceDACImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="employeeServiceBC" class="com.gslab.sample.business.EmployeeServiceBC">
+		<property name="employeeServiceDAC" ref="employeeServiceDAC" />
+	</bean>
+	
  
 </beans>

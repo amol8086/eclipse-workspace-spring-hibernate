@@ -39,7 +39,7 @@ public class MessagesDBController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody Map<String, Object> getAllMessages(HttpServletResponse response) {
+    public @ResponseBody Map<String, Object> findAllMessages(HttpServletResponse response) {
     	List<Message> messages = getMessageServiceDAC().findAllMessages();
     	Map<String, Object> jsonMap = new HashMap<String, Object>();
     	jsonMap.put("messages", messages);
@@ -82,7 +82,7 @@ public class MessagesDBController {
     public @ResponseBody Map<String, Object> deleteMessage(@PathVariable("id") int id) {
     	getMessageServiceDAC().deleteMessage(id);
         Map<String, Object> jsonMap = new HashMap<String, Object>();
-     	jsonMap.put("status", "deleted Message.");
+     	jsonMap.put("status", "Deleted Message.");
 		return jsonMap;
     }
     

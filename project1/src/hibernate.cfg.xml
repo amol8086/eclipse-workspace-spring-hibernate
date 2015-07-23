@@ -13,12 +13,16 @@
 		<property name="hibernate.format_sql">true</property>
 		<property name="hibernate.default_schema">localdatabase</property>
 		
-		<property name="hibernate.hbm2ddl.auto">update</property>
-		<property name="hibernate.connection.release_mode">auto</property>
+		<property name="hibernate.hbm2ddl.auto">validate</property>
+	<!--	<property name="hibernate.connection.release_mode">auto</property>
 		<property name="connection.release_mode">after_statement</property>
 		<property name="transaction.auto_close_session">true</property>
-		<property name="max_fetch_depth">2</property> 
+		<property name="max_fetch_depth">2</property>  -->
 		
-		<!-- <mapping class="com.gslab.sample.entity.Message" /> -->
+		<mapping class="com.gslab.sample.entity.Message" />
+		<mapping class="com.gslab.sample.entity.Employee" />
+		<mapping class="com.gslab.sample.entity.Department" />
+		<mapping class="com.gslab.sample.entity.Meeting" />
+		
 	</session-factory>
 </hibernate-configuration>
